@@ -1,0 +1,46 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Dvd</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>{{ "dvd.title" | trans }}</th>
+                <td>{{ entity.titre }}</td>
+            </tr>
+            <tr>
+                <th>{{ "dvd.year" | trans }}</th>
+                <td>{{ entity.annee|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>{{ "dvd.resume" | trans }}</th>
+                <td>{{ entity.resume }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('dvd') }}">
+            {{ "back.list" | trans }}
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('dvd_edit', { 'id': entity.id }) }}">
+            {{ "edit" | trans }}
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('dvd_delete', { 'id': entity.id }) }}" method="post">
+            <input type="hidden" name="_method" value="DELETE" />
+            {{ form_widget(delete_form) }}
+            <button type="submit">{{ "delete" | trans }}</button>
+        </form>
+    </li>
+</ul>
+{% endblock %}

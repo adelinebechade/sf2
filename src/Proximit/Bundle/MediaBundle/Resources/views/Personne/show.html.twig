@@ -1,0 +1,57 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Personne</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>{{ "id" | trans }}</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>{{ "personne.name" | trans }}</th>
+                <td>{{ entity.nom }}</td>
+            </tr>
+            <tr>
+                <th>{{ "personne.first.name" | trans }}</th>
+                <td>{{ entity.prenom }}</td>
+            </tr>
+            <tr>
+                <th>{{ "personne.nationality" | trans }}</th>
+                <td>{{ entity.nationalite }}</td>
+            </tr>
+            <tr>
+                <th>{{ "personne.date.birth" | trans }}</th>
+                <td>{{ entity.dateDeNaissance|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>{{ "personne.place.birth" | trans }}</th>
+                <td>{{ entity.lieuDeNaissance }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('personne') }}">
+            {{ "back.list" | trans }}
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('personne_edit', { 'id': entity.id }) }}">
+            {{ "edit" | trans }}
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('personne_list_dvd', { 'id': entity.id }) }}">{{ "dvd.list" | trans }}</a>
+    </li>
+    <li>
+        <form action="{{ path('personne_delete', { 'id': entity.id }) }}" method="post">
+            <input type="hidden" name="_method" value="DELETE" />
+            {{ form_widget(delete_form) }}
+            <button type="submit">{{ "delete" | trans }}</button>
+        </form>
+    </li>
+</ul>
+{% endblock %}

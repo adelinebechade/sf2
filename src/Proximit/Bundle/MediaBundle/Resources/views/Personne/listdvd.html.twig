@@ -1,0 +1,28 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>{{ "dvd.list" | trans }} {{ "for" | trans }} <a href="{{ path('personne_show', { 'id': realisateur.id }) }}"> {{ realisateur.prenom }} {{ realisateur.nom }}</a></h1>
+
+    <table class="records_list table table-striped">
+        <thead>
+            <tr>
+                <th>{{ "id" | trans }}</th>
+                <th>{{ "dvd.title" | trans }}</th>
+                <th>{{ "dvd.year" | trans }}</th>
+                <th>{{ "dvd.resume" | trans }}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('dvd_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.titre }}</td>
+                <td>{% if entity.annee %}{{ entity.annee|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.resume }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    
+    <a href="{{ path('personne_show', { 'id': realisateur.id }) }}">{{ "back" | trans }}</a>
+ {% endblock %}

@@ -1,0 +1,6 @@
+#services:
+#    proximit_user.onFosUserRegistrationSuccess:
+#        class: Proximit\Bundle\UserBundle\Listener\UserListener
+#        arguments: [@mailer, @router]
+#        tags:
+#            - { name: kernel.event_subscriber }

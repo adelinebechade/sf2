@@ -1,0 +1,46 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>{{ "dvd.list" | trans }}</h1>
+
+    <table class="records_list table table-striped">
+        <thead>
+            <tr>
+                <th>{{ "id" | trans }}</th>
+                <th>{{ "dvd.title" | trans }}</th>
+                <th>{{ "dvd.year" | trans }}</th>
+                <th>{{ "dvd.resume" | trans }}</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('dvd_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.titre }}</td>
+                <td>{% if entity.annee %}{{ entity.annee|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.resume }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('dvd_show', { 'id': entity.id }) }}">{{ "show" | trans }}</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('dvd_edit', { 'id': entity.id }) }}">{{ "edit" | trans }}</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('dvd_new') }}">
+                {{ "create.entry" | trans }}
+            </a>
+        </li>
+    </ul>
+    {{ test}}
+    {% endblock %}

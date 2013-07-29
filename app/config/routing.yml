@@ -1,0 +1,34 @@
+proximit_user:
+    resource: "@ProximitUserBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+proximit_media:
+    resource: "@ProximitMediaBundle/Controller/"
+    type:     annotation
+    prefix:   /{_locale}/
+    
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+
+fos_user_profile:
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    prefix: /profile
+
+fos_user_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: /register
+
+fos_user_resetting:
+    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    prefix: /resetting
+
+fos_user_change_password:
+    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    prefix: /profile
+    
+select_lang:
+    pattern:  /{_locale}/select_lang/{langue}
+    defaults: { _controller: ProximitMediaBundle:Default:selectLang, _locale: en  }
+    requirements:
+        langue:  en|fr

@@ -1,0 +1,4 @@
+services:
+  proximit.media_service:
+    class: Proximit\Bundle\MediaBundle\Services\MediaService
+    arguments: [@doctrine.orm.entity_manager, @templating]

@@ -1,0 +1,27 @@
+login: Login
+logout: Logout
+connected.as: Connected as
+choose.language: Choose the language
+dvd.list: Dvd list
+dvd.creation: Add a dvd
+dvd.edit: Edit
+personne.list: Personne list
+personne.creation: Add a person
+personne.edit: Edit
+create.entry: Add
+show: Show
+edit: Edit
+delete: Delete
+back.list: Back to the list
+for: for
+back: Back
+id: Id
+dvd.title: Title
+dvd.year: Year
+dvd.resume: Summary
+director: Director
+personne.name: Name
+personne.first.name: First name
+personne.nationality: Nationality
+personne.date.birth: Date of birth
+personne.place.birth: Place of birth
